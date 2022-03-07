@@ -14,7 +14,11 @@ const User = () => {
 }
 
 const Wrapper = styled.section`
-  margin-bottom: 5rem;
+  display: grid;
+  gap: 3rem 2rem;
+  @media screen and (min-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 export default User

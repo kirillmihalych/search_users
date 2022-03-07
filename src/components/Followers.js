@@ -27,7 +27,7 @@ const Followers = () => {
 
 const Wrapper = styled.article`
   background: var(--white);
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
