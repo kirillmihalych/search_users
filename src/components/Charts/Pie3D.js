@@ -5,7 +5,7 @@ import pie3d from 'fusioncharts/fusioncharts.charts'
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion'
 ReactFC.fcRoot(FusionCharts, pie3d, FusionTheme)
 
-export const ChartExample = ({ data }) => {
+export const Pie3D = ({ data }) => {
   const chartConfigs = {
     type: 'pie3d',
     width: '100%',
