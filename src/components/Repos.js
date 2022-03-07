@@ -43,12 +43,24 @@ const Repos = () => {
   return (
     <Wrapper>
       <Pie3D data={languages} />
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
   margin: 5rem 0;
+  display: grid;
+  gap: 3rem;
+  @media screen and (min-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width: 1170px) {
+    grid-template-columns: 2fr 3fr;
+  }
 `
 
 export default Repos
