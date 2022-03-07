@@ -6,9 +6,9 @@ Variables
 
 :root {
   /* colors */
-  --backgroundColor: #fcfcfc;
-  --textColor: #1b1b1b;
-  --heading: #ec1515;
+  --white: #fcfcfc;
+  --black: #1b1b1b;
+  --red: #ec1515;
   /* properties */
   --transition: all 0.1 linear;
   --spacing: 0.1rem;
