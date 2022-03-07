@@ -18,45 +18,51 @@ const Info = () => {
     following,
   } = user[0]
 
+  const items = [
+    {
+      id: 1,
+      label: 'repos',
+      icon: <AiOutlineBook className='icon' />,
+      value: repos,
+    },
+    {
+      id: 2,
+      label: 'followers',
+      icon: <AiOutlineUsergroupAdd className='icon' />,
+      value: followers,
+    },
+    {
+      id: 3,
+      label: 'following',
+      icon: <AiOutlineUserAdd className='icon' />,
+      value: following,
+    },
+    {
+      id: 4,
+      label: 'gists',
+      icon: <GoGist className='icon' />,
+      value: gists,
+    },
+  ]
+
   return (
     <Wrapper>
-      <article>
-        <span>
-          <AiOutlineBook className='icon' />
-        </span>
-        <div>
-          <h3>{repos}</h3>
-          <p>repos</p>
-        </div>
-      </article>
-      <article>
-        <span>
-          <AiOutlineUsergroupAdd className='icon' />
-        </span>
-        <div>
-          <h3>{followers}</h3>
-          <p>followers</p>
-        </div>
-      </article>
-      <article>
-        <span>
-          <AiOutlineUserAdd className='icon' />
-        </span>
-        <div>
-          <h3>{following}</h3>
-          <p>following</p>
-        </div>
-      </article>
-      <article>
-        <span>
-          <GoGist className='icon' />
-        </span>
-        <div>
-          <h3>{gists}</h3>
-          <p>gists</p>
-        </div>
-      </article>
+      {items.map((item) => {
+        return <Item key={item.id} {...item} />
+      })}
     </Wrapper>
+  )
+}
+
+const Item = ({ label, icon, value }) => {
+  return (
+    <article>
+      <span>{icon}</span>
+      <div>
+        <h3>{value}</h3>
+        <p>{label}</p>
+      </div>
+    </article>
   )
 }
 
