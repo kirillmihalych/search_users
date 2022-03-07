@@ -13,7 +13,7 @@ export const Pie3D = ({ data }) => {
     dataFormat: 'json',
     dataSource: {
       chart: {
-        caption: 'Languages',
+        caption: 'Most used languages',
 
         // enableSmartLabels: '1',
         startingAngle: '0',
