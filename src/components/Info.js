@@ -70,9 +70,7 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 2rem;
-  width: 90vw;
-  max-width: 1170px;
-  margin: 5rem auto;
+  margin: 5rem 0;
   article {
     /* border: 2px solid black; */
     box-shadow: var(--shadow);

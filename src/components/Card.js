@@ -31,13 +31,14 @@ const Card = () => {
       <p className='bio'>{bio}</p>
       <div className='links'>
         <p>
-          <MdBusiness></MdBusiness> {company}
+          <MdBusiness className='icon'></MdBusiness> {company}
         </p>
         <p>
-          <MdLocationOn></MdLocationOn> {location || 'universe'}
+          <MdLocationOn className='icon'></MdLocationOn>{' '}
+          {location || 'universe'}
         </p>
         <a href={`https://${blog}`}>
-          <MdLink></MdLink>
+          <MdLink className='icon'></MdLink>
           {blog}
         </a>
       </div>
@@ -52,6 +53,7 @@ const Wrapper = styled.article`
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   position: relative;
+  height: 350px;
   &::before {
     content: 'user';
     position: absolute;
@@ -95,6 +97,27 @@ const Wrapper = styled.article`
       div {
         margin-left: 2rem;
       }
+      p {
+        color: #6c6c6c;
+      }
+    }
+  }
+  .bio {
+    color: #6c6c6c;
+  }
+  .links {
+    color: #6c6c6c;
+    p,
+    a {
+      display: flex;
+      align-items: center;
+    }
+    a {
+      color: #0aa0e3;
+    }
+    .icon {
+      color: #6c6c6c;
+      margin-right: 0.5rem;
     }
   }
 `
