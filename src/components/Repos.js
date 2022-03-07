@@ -2,6 +2,7 @@ import React from 'react'
 import { useGlobalContext } from '../context'
 import styled from 'styled-components'
 import { Pie3D } from './Charts/Pie3D'
+import { Doughnut } from './Charts/Doughnut'
 
 const Repos = () => {
   const { repos } = useGlobalContext()
@@ -44,8 +45,7 @@ const Repos = () => {
     <Wrapper>
       <Pie3D data={languages} />
       <div></div>
-      <div></div>
-      <div></div>
+      <Doughnut data={chartData} />
       <div></div>
     </Wrapper>
   )
