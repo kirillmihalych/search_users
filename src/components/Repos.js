@@ -3,21 +3,24 @@ import { useGlobalContext } from '../context'
 import styled from 'styled-components'
 import { Pie3D } from './Charts/Pie3D'
 import { Doughnut } from './Charts/Doughnut'
+import { Column } from './Charts/Column'
+import { Bar } from './Charts/Bar'
 
 const Repos = () => {
   const { repos } = useGlobalContext()
 
   let languages = repos.reduce((prev, current) => {
-    const { language, stargazers_count: stars } = current
+    const { language, stargazers_count: stars, forks_count: forks } = current
     if (!language) return prev
 
     if (!prev[language]) {
-      prev[language] = { label: language, value: 1, stars: stars }
+      prev[language] = { label: language, value: 1, stars: stars, forks: forks }
     } else {
       prev[language] = {
         ...prev[language],
         value: prev[language].value + 1,
         stars: prev[language].stars + stars,
+        forks: prev[language].forks + forks,
       }
     }
     return prev
@@ -37,28 +40,20 @@ const Repos = () => {
     })
     .slice(0, 5)
 
-  console.log(stars)
+  let forks = languages
+    .sort((a, b) => {
+      return b.forks - a.forks
+    })
+    .map((item) => {
+      return { ...item, value: item.forks }
+    })
 
-  const chartData = [
-    {
-      label: 'HTML',
-      value: '13',
-    },
-    {
-      label: 'CSS',
-      value: '17',
-    },
-    {
-      label: 'JS',
-      value: '70',
-    },
-  ]
   return (
     <Wrapper>
       <Pie3D data={languages} />
-      <div></div>
+      <Column data={stars} />
       <Doughnut data={stars} />
-      <div></div>
+      <Bar data={forks} />
     </Wrapper>
   )
 }
