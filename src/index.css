@@ -9,11 +9,13 @@ Variables
   --white: #fcfcfc;
   --black: #1b1b1b;
   --red: #ec1515;
+  --green: #006400;
+  --lightGrey: #a0a0a0;
   /* properties */
   --transition: all 0.1 linear;
   --spacing: 0.1rem;
   --radius: 0.3rem;
-  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   --max-width: 1170px;
   --min-width: 90vw;
   --fixed-width: 620px;
@@ -35,7 +37,7 @@ Basic styles
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #fcfcfc;
+  background: #e7e7e7;
   color: #1b1b1b;
   line-height: 1.5rem;
   font-size: 0.875rem;

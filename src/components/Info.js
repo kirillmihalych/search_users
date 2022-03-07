@@ -72,9 +72,10 @@ const Wrapper = styled.section`
   gap: 2rem;
   width: 90vw;
   max-width: 1170px;
-  margin: 0 auto;
+  margin: 5rem auto;
   article {
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    box-shadow: var(--shadow);
     border-radius: var(--radius);
     padding: 1rem 2rem;
     background: var(--white);
@@ -95,10 +96,12 @@ const Wrapper = styled.section`
   }
   p {
     text-transform: capitalize;
+    color: #a0a0a0;
   }
 
   .icon {
     font-size: 3rem;
+    color: var(--green);
   }
 `
 

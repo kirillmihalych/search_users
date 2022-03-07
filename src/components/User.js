@@ -1,7 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
+import Card from './Card'
+import { useGlobalContext } from '../context'
 
 const User = () => {
-  return <h2>User</h2>
+  return (
+    <>
+      <Card />
+    </>
+  )
 }
 
 export default User
