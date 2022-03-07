@@ -7,25 +7,32 @@ import { Doughnut } from './Charts/Doughnut'
 const Repos = () => {
   const { repos } = useGlobalContext()
 
-  let languages = repos.reduce((total, item) => {
-    const { language } = item
-    if (!language) return total
-    if (!total[language]) {
-      total[language] = { label: language, value: 1 }
+  let languages = repos.reduce((prev, current) => {
+    const { language, stargazers_count: stars } = current
+    if (!language) return prev
+
+    if (!prev[language]) {
+      prev[language] = { label: language, value: 1, stars: stars }
     } else {
-      total[language] = {
-        ...total[language],
-        value: total[language].value + 1,
+      prev[language] = {
+        ...prev[language],
+        value: prev[language].value + 1,
+        stars: prev[language].stars + stars,
       }
     }
-    return total
+    return prev
   }, {})
   languages = Object.values(languages)
     .sort((a, b) => {
       return b.value - a.value
     })
     .slice(0, 5)
-  console.log(languages)
+
+  let stars = languages
+    .sort((a, b) => {
+      return b.stars - a.stars
+    })
+    .slice(0, 5)
 
   const chartData = [
     {
@@ -45,7 +52,7 @@ const Repos = () => {
     <Wrapper>
       <Pie3D data={languages} />
       <div></div>
-      <Doughnut data={chartData} />
+      <Doughnut data={stars} />
       <div></div>
     </Wrapper>
   )

@@ -22,6 +22,7 @@ export const Pie3D = ({ data }) => {
         useDataPlotColorForLabels: '1',
         theme: 'fusion',
         pieRadius: '55%',
+        enableMultiSlicing: false,
       },
       data,
     },
