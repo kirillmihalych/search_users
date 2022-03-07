@@ -23,10 +23,10 @@ const Wrapper = styled.section`
     text-align: center;
   }
   a {
-    color: #fcfcfc;
-    background-color: #1b1b1b;
+    color: var(--white);
+    background-color: var(--black);
     padding: 0.15rem 0.4rem;
-    border-radius: 5px;
+    border-radius: var(--radius);
   }
 `
 
