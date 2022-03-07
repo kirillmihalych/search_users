@@ -12,7 +12,7 @@ const Dashboard = () => {
       <Search />
       <Info />
       <User />
-      <Info />
+      <Repos />
     </>
   )
 }
