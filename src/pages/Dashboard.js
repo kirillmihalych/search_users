@@ -22,13 +22,15 @@ const Dashboard = () => {
     )
   }
   return (
-    <Wrapper>
+    <>
       <Navbar />
-      <Search />
-      <Info />
-      <User />
-      <Repos />
-    </Wrapper>
+      <Wrapper>
+        <Search />
+        <Info />
+        <User />
+        <Repos />
+      </Wrapper>
+    </>
   )
 }
 
