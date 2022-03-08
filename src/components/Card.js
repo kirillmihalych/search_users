@@ -53,7 +53,7 @@ const Wrapper = styled.article`
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   position: relative;
-  height: 350px;
+  height: 375px;
   &::before {
     content: 'user';
     position: absolute;

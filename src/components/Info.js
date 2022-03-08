@@ -99,7 +99,7 @@ const Wrapper = styled.section`
 
   .icon {
     font-size: 3rem;
-    color: var(--green);
+    color: #0aa0e3;
   }
 `
 

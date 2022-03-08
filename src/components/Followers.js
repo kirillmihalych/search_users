@@ -27,7 +27,7 @@ const Followers = () => {
 
 const Wrapper = styled.article`
   background: var(--white);
-  /* margin-top: 5rem; */
+
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -49,7 +49,7 @@ const Wrapper = styled.article`
   }
   .followers {
     overflow: scroll;
-    height: 350px;
+    height: 375px;
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
