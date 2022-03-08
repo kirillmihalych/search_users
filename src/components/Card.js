@@ -5,6 +5,7 @@ import { MdBusiness, MdLocationOn, MdLink } from 'react-icons/md'
 
 const Card = () => {
   const { user } = useGlobalContext()
+
   const {
     login,
     avatar_url,
@@ -14,7 +15,7 @@ const Card = () => {
     company,
     twitter_username,
     bio,
-  } = user[0]
+  } = user
 
   return (
     <Wrapper>

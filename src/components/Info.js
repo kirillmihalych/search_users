@@ -16,7 +16,7 @@ const Info = () => {
     public_gists: gists,
     followers,
     following,
-  } = user[0]
+  } = user
 
   const items = [
     {

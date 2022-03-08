@@ -4,10 +4,13 @@ import { useGlobalContext } from '../context'
 import { AiOutlineSearch } from 'react-icons/ai'
 
 const Search = () => {
-  const { limit, error } = useGlobalContext()
+  const { limit, error, query, setQuery, searchUser } = useGlobalContext()
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    if (query) {
+      setQuery(query)
+    }
   }
 
   return (
@@ -19,8 +22,16 @@ const Search = () => {
       )}
       <form onSubmit={handleSubmit}>
         <AiOutlineSearch className='icon' />
-        <input type='text' />
-        {limit > 0 && <button type='submit'>search</button>}
+        <input
+          type='text'
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+        />
+        {limit > 0 && (
+          <button type='submit' onClick={searchUser}>
+            search
+          </button>
+        )}
       </form>
 
       <div>Requests: {limit}/ 60 </div>

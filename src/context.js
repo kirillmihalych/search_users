@@ -16,6 +16,20 @@ const AppProvider = ({ children }) => {
   const [limit, setLimit] = useState()
   //error state
   const [error, setError] = useState({ show: false, msg: '' })
+  const [query, setQuery] = useState('')
+
+  const searchUser = async () => {
+    toggleError()
+    const response = await axios(`${url}/users/${query}`).catch((error) =>
+      console.log(error)
+    )
+    console.log(response)
+    if (response) {
+      setUser(response.data)
+    } else {
+      toggleError(true, 'no users match your search')
+    }
+  }
 
   useEffect(() => {
     axios
@@ -38,7 +52,18 @@ const AppProvider = ({ children }) => {
   }
 
   return (
-    <AppContext.Provider value={{ repos, followers, user, limit, error }}>
+    <AppContext.Provider
+      value={{
+        repos,
+        followers,
+        user,
+        limit,
+        error,
+        query,
+        setQuery,
+        searchUser,
+      }}
+    >
       {children}
     </AppContext.Provider>
   )
