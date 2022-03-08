@@ -26,30 +26,29 @@ const AppProvider = ({ children }) => {
       console.log(error)
     )
     if (response) {
-      //set user
       setUser(response.data)
-      //set repos
+
       const { login, followers_url } = response.data
-      console.log(followers_url)
-      const newRepos = await axios(
-        `${url}/users/${login}/repos?per_page=100`
-      ).catch((error) => console.log(error))
-
-      setRepos(newRepos.data)
-      //set followers
-
-      const newFollowers = await axios(`${followers_url}?per_page=100`).catch(
-        (error) => console.log(error)
-      )
-      setFollowers(newFollowers.data)
-
-      setLoading(false)
-      checkReuqstsLimit()
+      await Promise.allSettled([
+        axios(`${url}/users/${login}/repos?per_page=100`),
+        axios(`${followers_url}?per_page=100`),
+      ])
+        .then((response) => {
+          const [repos, followers] = response
+          const status = 'fulfilled'
+          if (repos.status === status) {
+            setRepos(repos.value.data)
+          }
+          if (followers.status === status) {
+            setFollowers(followers.value.data)
+          }
+        })
+        .catch((error) => console.log(error))
     } else {
       toggleError(true, 'no users match your search')
-      setLoading(false)
-      checkReuqstsLimit()
     }
+    setLoading(false)
+    checkReuqstsLimit()
   }
 
   const checkReuqstsLimit = () => {
