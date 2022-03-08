@@ -4,7 +4,7 @@ import { useGlobalContext } from '../context'
 import { AiOutlineSearch } from 'react-icons/ai'
 
 const Search = () => {
-  const { limit } = useGlobalContext()
+  const { limit, error } = useGlobalContext()
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -12,21 +12,29 @@ const Search = () => {
 
   return (
     <Wrapper>
+      {error.show === true && (
+        <ErrorWrapper>
+          <p>{error.msg}</p>
+        </ErrorWrapper>
+      )}
       <form onSubmit={handleSubmit}>
         <AiOutlineSearch className='icon' />
         <input type='text' />
-        <button type='submit'>search</button>
+        {limit > 0 && <button type='submit'>search</button>}
       </form>
+
       <div>Requests: {limit}/ 60 </div>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
+  margin-top: 3rem;
   display: grid;
   grid-template-columns: 1fr max-content;
   align-items: center;
   gap: 2rem;
+  position: relative;
   form {
     display: flex;
     align-items: center;
@@ -69,6 +77,16 @@ const Wrapper = styled.section`
     align-items: center;
     font-size: 1.3rem;
   }
+`
+
+const ErrorWrapper = styled.div`
+  color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  padding: 0.2rem 0.4rem;
+  letter-spacing: 0.1rem;
 `
 
 export default Search
