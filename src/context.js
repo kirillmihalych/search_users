@@ -25,9 +25,24 @@ const AppProvider = ({ children }) => {
     const response = await axios(`${url}/users/${query}`).catch((error) =>
       console.log(error)
     )
-    console.log(response)
     if (response) {
+      //set user
       setUser(response.data)
+      //set repos
+      const { login, followers_url } = response.data
+      console.log(followers_url)
+      const newRepos = await axios(
+        `${url}/users/${login}/repos?per_page=100`
+      ).catch((error) => console.log(error))
+
+      setRepos(newRepos.data)
+      //set followers
+
+      const newFollowers = await axios(`${followers_url}?per_page=100`).catch(
+        (error) => console.log(error)
+      )
+      setFollowers(newFollowers.data)
+
       setLoading(false)
       checkReuqstsLimit()
     } else {
