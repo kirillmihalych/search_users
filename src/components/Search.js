@@ -3,19 +3,8 @@ import styled from 'styled-components'
 import { useGlobalContext } from '../context'
 import { AiOutlineSearch } from 'react-icons/ai'
 
-const urlLimit = 'https://api.github.com/rate_limit'
-
 const Search = () => {
-  const [limit, setLimit] = React.useState()
-
-  const fetchLimit = async (url) => {
-    const response = await fetch(url)
-    const data = await response.json()
-    setLimit(data.rate.remaining)
-  }
-  useEffect(() => {
-    fetchLimit(urlLimit)
-  }, [])
+  const { limit } = useGlobalContext()
 
   const handleSubmit = (event) => {
     event.preventDefault()
