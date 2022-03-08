@@ -17,21 +17,27 @@ const AppProvider = ({ children }) => {
   //error state
   const [error, setError] = useState({ show: false, msg: '' })
   const [query, setQuery] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const searchUser = async () => {
     toggleError()
+    setLoading(true)
     const response = await axios(`${url}/users/${query}`).catch((error) =>
       console.log(error)
     )
     console.log(response)
     if (response) {
       setUser(response.data)
+      setLoading(false)
+      checkReuqstsLimit()
     } else {
       toggleError(true, 'no users match your search')
+      setLoading(false)
+      checkReuqstsLimit()
     }
   }
 
-  useEffect(() => {
+  const checkReuqstsLimit = () => {
     axios
       .get(`${url}/rate_limit`)
       .then(({ data }) => {
@@ -45,6 +51,10 @@ const AppProvider = ({ children }) => {
         }
       })
       .catch((error) => console.log(error))
+  }
+
+  useEffect(() => {
+    checkReuqstsLimit()
   }, [])
 
   const toggleError = (show, msg) => {
@@ -62,6 +72,7 @@ const AppProvider = ({ children }) => {
         query,
         setQuery,
         searchUser,
+        loading,
       }}
     >
       {children}
