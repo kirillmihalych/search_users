@@ -13,10 +13,7 @@ const Dashboard = () => {
     return (
       <Wrapper>
         <div className='flex-container'>
-          <div className='loading'>
-            <h3>Page is loading.</h3>
-            <p>Please, wait.</p>
-          </div>
+          <div className='loading'></div>
         </div>
       </Wrapper>
     )
@@ -45,6 +42,24 @@ const Wrapper = styled.main`
     height: 95vh;
     div {
       text-align: center;
+    }
+  }
+  .loading:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 0.2rem solid lightgrey;
+    border-top-color: #0aa0e3;
+    animation: spinner 0.7s linear infinite;
+  }
+
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
     }
   }
 `
