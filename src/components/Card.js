@@ -82,11 +82,12 @@ const Wrapper = styled.article`
     }
     a {
       height: 100%;
-      font-size: 1.5rem;
-      border: 1px solid #0aa0e3;
+      font-size: 1.2rem;
+      border: 2px solid #0aa0e3;
       padding: 0.15rem 0.5rem;
       color: #0aa0e3;
       border-radius: var(--radius);
+      text-transform: capitalize;
       &:hover {
         background: #0aa0e3;
         color: var(--white);

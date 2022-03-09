@@ -24,7 +24,7 @@ const Navbar = () => {
               className='logout'
               onClick={() => logout({ returnTo: window.location.origin })}
             >
-              log out
+              logout
             </button>
           </div>
         )) || (
@@ -59,17 +59,19 @@ const Wrapper = styled.section`
     }
     .logout {
       margin-bottom: 0;
-      margin-left: 1rem;
+      margin-left: 5rem;
       padding: 0.2rem 0.4rem;
       background: transparent;
-      color: lightblue;
-      border: 1px solid lightblue;
+      color: #0aa0e3;
+      border: 2px solid #0aa0e3;
       border-radius: var(--radius);
       text-transform: capitalize;
       font-size: 1rem;
       &:hover {
         cursor: pointer;
-        color: orange;
+        color: var(--white);
+        background: #0aa0e3;
+        transition: 0.1s;
       }
     }
   }

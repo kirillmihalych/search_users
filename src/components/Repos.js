@@ -68,6 +68,17 @@ const Wrapper = styled.section`
   @media screen and (min-width: 1170px) {
     grid-template-columns: 2fr 3fr;
   }
+
+  div {
+    width: 100% !important;
+  }
+  .fusioncharts-container {
+    width: 100% !important;
+  }
+  svg {
+    width: 100% !important;
+    border-radius: var(--radius) !important;
+  }
 `
 
 export default Repos

@@ -42,9 +42,11 @@ const Search = () => {
 const Wrapper = styled.section`
   margin-top: 3rem;
   display: grid;
-  grid-template-columns: 1fr max-content;
-  align-items: center;
   gap: 2rem;
+  @media screen and (min-width: 760px) {
+    grid-template-columns: 1fr max-content;
+  }
+
   position: relative;
   form {
     display: flex;
@@ -64,6 +66,9 @@ const Wrapper = styled.section`
       padding: 0.25rem 0.5rem;
       background: transparent;
       outline-color: #0aa0e3;
+      font-size: 1.2rem;
+      letter-spacing: 0.1rem;
+      color: #6c6c6c;
     }
     button {
       cursor: pointer;
@@ -86,6 +91,7 @@ const Wrapper = styled.section`
     display: flex;
     font-weight: 100;
     align-items: center;
+    justify-content: center;
     font-size: 1.3rem;
   }
 `
