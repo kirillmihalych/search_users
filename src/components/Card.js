@@ -24,7 +24,7 @@ const Card = () => {
           <img src={avatar_url} alt={login} />
           <div>
             <h3>{login}</h3>
-            <p>@{twitter_username || 'jhon doe'}</p>
+            <p className='username'>@{twitter_username || 'jhon doe'}</p>
           </div>
         </div>
         <a href={html_url}>follow</a>
@@ -32,16 +32,17 @@ const Card = () => {
       <p className='bio'>{bio}</p>
       <div className='links'>
         <p>
-          <MdBusiness className='icon'></MdBusiness> {company}
+          <MdBusiness className='icon'></MdBusiness>
+          {company}
         </p>
         <p>
           <MdLocationOn className='icon'></MdLocationOn>{' '}
           {location || 'universe'}
         </p>
-        <a href={`https://${blog}`}>
+        <p>
           <MdLink className='icon'></MdLink>
-          {blog}
-        </a>
+          <a href={`https://${blog}`}>{blog}</a>
+        </p>
       </div>
     </Wrapper>
   )
@@ -54,7 +55,7 @@ const Wrapper = styled.article`
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   position: relative;
-  height: 375px;
+  box-shadow: var(--shadow);
   &::before {
     content: 'user';
     position: absolute;
@@ -69,7 +70,6 @@ const Wrapper = styled.article`
     font-size: 1rem;
     letter-spacing: 0.1rem;
   }
-
   header {
     display: flex;
     justify-content: space-between;
@@ -79,46 +79,50 @@ const Wrapper = styled.article`
       width: 130px;
       height: 130px;
       border-radius: 5px;
+      border: 3px solid var(--black);
+    }
+    .username {
+      background: var(--black);
+      color: #eebc1d;
+      padding: 0.25rem 0.5rem;
+      margin-top: 0.5rem;
     }
     a {
       height: 100%;
-      font-size: 1.2rem;
-      border: 2px solid #0aa0e3;
+      font-size: 1rem;
+      border: 2px solid black;
+      background: #eebc1d;
       padding: 0.15rem 0.5rem;
-      color: #0aa0e3;
-      border-radius: var(--radius);
+      color: black;
       text-transform: capitalize;
       &:hover {
-        background: #0aa0e3;
-        color: var(--white);
-        transition: 0.1s;
-      }
-    }
-    .flex-wrapper {
-      display: flex;
-      div {
-        margin-left: 2rem;
-      }
-      p {
-        color: #6c6c6c;
+        background: var(--black);
+        color: #eebc1d;
+        transition: var(--trasition);
       }
     }
   }
   .bio {
-    color: #6c6c6c;
+    color: #505050;
+    letter-spacing: 0.15rem;
   }
   .links {
-    color: #6c6c6c;
     p,
     a {
       display: flex;
       align-items: center;
-    }
-    a {
-      color: #0aa0e3;
+      font-style: italic;
+      color: #505050;
+      text-decoration: 2px underline black;
+      letter-spacing: 0.05rem;
     }
     .icon {
-      color: #6c6c6c;
+      align-self: center;
+      color: #eebc1d;
+      background: black;
+      font-size: 1.25rem;
+      padding: 0.1rem;
+      border-radius: 2px;
       margin-right: 0.5rem;
     }
   }

@@ -21,20 +21,22 @@ const Search = () => {
         </ErrorWrapper>
       )}
       <form onSubmit={handleSubmit}>
-        <AiOutlineSearch className='icon' />
+        {limit > 0 && (
+          <button type='submit' onClick={searchUser}>
+            <AiOutlineSearch className='icon' />
+          </button>
+        )}
+        <span className='vr'></span>
         <input
           type='text'
+          placeholder='search'
           value={query}
           onChange={(event) => setQuery(event.target.value)}
         />
-        {limit > 0 && (
-          <button type='submit' onClick={searchUser}>
-            search
-          </button>
-        )}
       </form>
-
-      <div>Requests: {limit}/ 60 </div>
+      <div className='requests'>
+        Requests: <span>{limit}/ 60 </span>
+      </div>
     </Wrapper>
   )
 }
@@ -43,56 +45,72 @@ const Wrapper = styled.section`
   margin-top: 3rem;
   display: grid;
   gap: 2rem;
-  @media screen and (min-width: 760px) {
-    grid-template-columns: 1fr max-content;
-  }
-
   position: relative;
   form {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    background: white;
+    box-shadow: var(--shadow);
     gap: 0.5rem;
-    background: var(--white);
-    padding: 0.5rem;
-    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
     .icon {
-      flex-grow: 0.3;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       font-weight: bold;
     }
     input {
-      flex-grow: 4;
       border: none;
       padding: 0.25rem 0.5rem;
-      background: transparent;
-      outline-color: #0aa0e3;
       font-size: 1.2rem;
       letter-spacing: 0.1rem;
+      border: 2px solid transparent;
+      border-radius: 5px;
+    }
+    input::placeholder {
       color: #6c6c6c;
+      text-transform: capitalize;
+    }
+    input:focus {
+      outline: none;
+      border: 2px solid #77c3ec;
     }
     button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       flex-grow: 1.5;
       padding: 0.25rem 0.5rem;
-      background: #0aa0e3;
+      background: white;
       border: none;
       font-size: 1.05rem;
       border-radius: var(--radius);
-      color: var(--white);
+      color: #6c6c6c;
+      font-style: italic;
       text-transform: capitalize;
       letter-spacing: 0.1rem;
     }
-    button:hover {
-      color: orange;
-      transition: 0.1s;
+    .vr {
+      border-left: 2px solid #bebebe;
     }
   }
-  div {
+  .requests {
     display: flex;
-    font-weight: 100;
+    font-weight: bold;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    background: white;
+    padding: 0 0.4rem;
+    border-radius: 5px;
+    letter-spacing: var(--spacing);
+    span {
+      color: black;
+      border-radius: 5px;
+      padding: 0.1rem 0.2rem;
+    }
+  }
+  @media screen and (min-width: 760px) {
+    grid-template-columns: 1fr max-content;
   }
 `
 

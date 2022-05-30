@@ -23,8 +23,8 @@ const Dashboard = () => {
       <Navbar />
       <Wrapper>
         <Search />
-        <Info />
         <User />
+        <Info />
         <Repos />
       </Wrapper>
     </>

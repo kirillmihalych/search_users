@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from './Card'
 import Followers from './Followers'
-import { useGlobalContext } from '../context'
 
 const User = () => {
   return (
@@ -14,6 +13,8 @@ const User = () => {
 }
 
 const Wrapper = styled.section`
+  max-width: 95vw;
+  margin: 5rem 0;
   display: grid;
   gap: 3rem 2rem;
   @media screen and (min-width: 992px) {

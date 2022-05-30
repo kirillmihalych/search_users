@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
   const [error, setError] = useState({ show: false, msg: '' })
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(false)
-
+  //search user
   const searchUser = async () => {
     toggleError()
     setLoading(true)
@@ -27,7 +27,6 @@ const AppProvider = ({ children }) => {
     )
     if (response) {
       setUser(response.data)
-
       const { login, followers_url } = response.data
       await Promise.allSettled([
         axios(`${url}/users/${login}/repos?per_page=100`),
@@ -50,7 +49,7 @@ const AppProvider = ({ children }) => {
     setLoading(false)
     checkReuqstsLimit()
   }
-
+  // handle requests limit
   const checkReuqstsLimit = () => {
     axios
       .get(`${url}/rate_limit`)
@@ -58,7 +57,6 @@ const AppProvider = ({ children }) => {
         let {
           rate: { remaining },
         } = data
-
         setLimit(remaining)
         if (remaining === 0) {
           toggleError(true, 'Sorry, you have no more hourly requests')

@@ -70,9 +70,7 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 2rem;
-  margin: 5rem 0;
   article {
-    /* border: 2px solid black; */
     box-shadow: var(--shadow);
     border-radius: var(--radius);
     padding: 1rem 2rem;
@@ -94,12 +92,11 @@ const Wrapper = styled.section`
   }
   p {
     text-transform: capitalize;
-    color: #a0a0a0;
+    color: #505050;
   }
-
   .icon {
     font-size: 3rem;
-    color: #0aa0e3;
+    color: #eebc1d;
   }
 `
 

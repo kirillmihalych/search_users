@@ -27,11 +27,11 @@ const Followers = () => {
 
 const Wrapper = styled.article`
   background: var(--white);
-
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   position: relative;
+  box-shadow: var(--shadow);
   &::before {
     content: 'followers';
     position: absolute;
@@ -49,7 +49,7 @@ const Wrapper = styled.article`
   }
   .followers {
     overflow: scroll;
-    height: 375px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
@@ -61,15 +61,29 @@ const Wrapper = styled.article`
     align-items: center;
   }
   img {
-    width: 55px;
+    width: 65px;
     border-radius: 50%;
+    border: 2px solid black;
     object-fit: cover;
   }
   h4 {
-    margin-bottom: 0;
+    margin-bottom: 0.25rem;
+    font-size: 1.15rem;
   }
   .info {
     padding: 1rem 2rem;
+  }
+  a {
+    display: inline-block;
+    color: #eebc1d;
+    margin-top: 0.25rem;
+    background: black;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+  }
+  a:hover {
+    transition: var(--transition);
+    color: white;
   }
 `
 
