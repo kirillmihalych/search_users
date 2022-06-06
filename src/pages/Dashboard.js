@@ -62,6 +62,13 @@ const Wrapper = styled.main`
       transform: rotate(360deg);
     }
   }
+
+  @media screen and (max-width: 662px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 export default Dashboard
